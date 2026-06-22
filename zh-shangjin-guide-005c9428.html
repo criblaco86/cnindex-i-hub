@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>赏金女王 · 稳定入口与页面说明</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background-color: #f4f6f9;
+      color: #1e2a3a;
+      line-height: 1.6;
+      padding: 2rem 1.2rem;
+    }
+
+    .wrap {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    /* Hero 卡片区 ———— 主线视觉 */
+    .hero-card {
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 2.8rem 2rem;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04), 0 1px 4px rgba(0, 0, 0, 0.02);
+      border: 1px solid #eaeef2;
+      margin-bottom: 2.5rem;
+      transition: box-shadow 0.2s ease;
+    }
+
+    .hero-card:hover {
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06);
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background: #eaeef2;
+      border-radius: 40px;
+      padding: 0.2rem 1rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: #465a6e;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-title {
+      font-size: 1.9rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #0f1c2b;
+      margin-bottom: 1.1rem;
+      line-height: 1.25;
+    }
+
+    .hero-title span {
+      background: linear-gradient(to right, #1f3b4f, #34576e);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-text {
+      font-size: 1rem;
+      color: #2b3f54;
+      max-width: 680px;
+      margin-bottom: 1.8rem;
+    }
+
+    .hero-text a {
+      color: #1f4b6e;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+      text-decoration-color: #b3c7d6;
+      font-weight: 500;
+      transition: color 0.15s;
+    }
+
+    .hero-text a:hover {
+      color: #0a2c42;
+      text-decoration-color: #7997ad;
+    }
+
+    .hero-note {
+      font-size: 0.85rem;
+      color: #5f738a;
+      border-left: 3px solid #d4dee6;
+      padding-left: 1rem;
+      background: #f8fafc;
+      border-radius: 0 8px 8px 0;
+      padding: 0.6rem 1rem;
+    }
+
+    /* 信息卡片网格 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.8rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .info-card {
+      background: #ffffff;
+      border: 1px solid #e3e9ef;
+      border-radius: 24px;
+      padding: 1.8rem 1.6rem 2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+      transition: transform 0.15s, box-shadow 0.2s;
+    }
+
+    .info-card:hover {
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.04);
+      transform: translateY(-3px);
+      border-color: #cdd8e2;
+    }
+
+    .card-icon {
+      background: #e7edf3;
+      border-radius: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      font-size: 1.4rem;
+      margin-bottom: 0.8rem;
+      color: #1f3b4f;
+    }
+
+    .info-card h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+      color: #112433;
+    }
+
+    .info-card p {
+      font-size: 0.92rem;
+      color: #31485d;
+      margin-bottom: 0.2rem;
+    }
+
+    .info-card .meta-tag {
+      display: inline-block;
+      background: #eef3f8;
+      border-radius: 30px;
+      padding: 0.2rem 0.9rem;
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: #3d5b73;
+      margin-top: 0.6rem;
+    }
+
+    /* 人群区块 ———— 适合谁 */
+    .audience-section {
+      background: #ffffff;
+      border-radius: 28px;
+      border: 1px solid #e2e9f0;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.02);
+      padding: 2.2rem 2rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .audience-section h2 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 1.4rem;
+      color: #0b1f31;
+      letter-spacing: -0.01em;
+    }
+
+    .audience-flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 1.6rem;
+    }
+
+    .audience-item {
+      background: #f4f8fc;
+      border-radius: 60px;
+      padding: 0.4rem 1.2rem 0.4rem 1.4rem;
+      font-size: 0.92rem;
+      border: 1px solid #dce5ed;
+      color: #1c374c;
+    }
+
+    .audience-item::before {
+      content: "·";
+      margin-right: 6px;
+      color: #6f8ba3;
+      font-weight: bold;
+    }
+
+    /* 自然链接段落 ———— FAQ 摘要风格 */
+    .link-paragraph-card {
+      background: #ffffff;
+      border-radius: 28px;
+      border: 1px solid #e5ecf2;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+      padding: 2rem 2rem 2.2rem;
+      margin-bottom: 2.2rem;
+    }
+
+    .link-paragraph-card h2 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #143244;
+    }
+
+    .link-paragraph-card p {
+      margin-bottom: 1.2rem;
+      font-size: 0.96rem;
+      color: #2b4056;
+    }
+
+    .link-paragraph-card a {
+      color: #1d4b6b;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+      text-decoration-color: #b0c8db;
+      font-weight: 500;
+    }
+
+    .link-paragraph-card a:hover {
+      color: #0a2c44;
+      text-decoration-color: #6e8ea9;
+    }
+
+    .faq-mini {
+      background: #f6f9fc;
+      border-radius: 18px;
+      padding: 1.2rem 1.5rem;
+      border: 1px solid #dbe3eb;
+      margin-top: 0.8rem;
+    }
+
+    .faq-mini p {
+      font-size: 0.9rem;
+      margin-bottom: 0.4rem;
+      color: #1d3a51;
+    }
+
+    .faq-mini strong {
+      font-weight: 600;
+      color: #0f2b3f;
+    }
+
+    /* 提示条 */
+    .tip-note {
+      background: #ecf2f8;
+      border-radius: 40px;
+      padding: 0.7rem 1.5rem;
+      font-size: 0.85rem;
+      color: #1b3b53;
+      display: inline-block;
+      margin-top: 0.5rem;
+      border: 1px solid #d2deea;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #dce4ec;
+      margin: 2rem 0 1rem;
+      opacity: 0.5;
+    }
+
+    .footer-note {
+      text-align: center;
+      color: #6c839b;
+      font-size: 0.8rem;
+      padding: 1.5rem 0 0.5rem;
+      border-top: 1px solid #dce4ec;
+      margin-top: 1.8rem;
+    }
+
+    /* 响应式 */
+    @media (max-width: 600px) {
+      body {
+        padding: 1.2rem 0.8rem;
+      }
+      .hero-card {
+        padding: 2rem 1.2rem;
+      }
+      .hero-title {
+        font-size: 1.6rem;
+      }
+      .info-card {
+        padding: 1.5rem 1.2rem;
+      }
+      .audience-section, .link-paragraph-card {
+        padding: 1.6rem 1.2rem;
+      }
+      .audience-item {
+        font-size: 0.85rem;
+        padding: 0.3rem 1rem;
+      }
+    }
+
+    @media (min-width: 700px) {
+      .hero-card {
+        padding: 3.2rem 3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <!-- 主视觉卡片 -->
+    <div class="hero-card">
+      <div class="hero-tag">🌱 信息指引 · 稳定入口</div>
+      <h1 class="hero-title">关于 <span>赏金女王</span> 的介绍与页面说明</h1>
+      <div class="hero-text">
+        <p><a href="https://zh-shangjin.com">赏金女王</a> 是一个以内容整合与导航为主的站点，方便有兴趣的朋友了解相关主题与功能。这里没有浮夸的渲染，只提供清晰、克制的信息卡片，帮助每个人快速找到自己需要的部分。</p>
+        <p style="margin-top: 0.8rem;">整个页面围绕稳定入口、用途卡片和常见疑问展开，你可以通过下方卡片了解不同方向，也可以通过自然链接直接了解 <a href="https://zh-shangjin.com">赏金女王</a> 本身。</p>
+      </div>
+      <div class="hero-note">
+        ⚡ 如果你希望直接浏览站点，可直接滑到「自然链接段落」或点击文中链接。<br>
+        我们始终建议从熟悉的入口开始，保持浏览习惯的延续。
+      </div>
+    </div>
+
+    <!-- 用途卡片 + 特点 -->
+    <div class="card-grid">
+      <div class="info-card">
+        <div class="card-icon">📌</div>
+        <h3>信息聚合</h3>
+        <p>将分散的功能入口、常见说明与使用场景整理为简洁的卡片结构，降低查找成本。</p>
+        <span class="meta-tag">分类清晰</span>
+      </div>
+      <div class="info-card">
+        <div class="card-icon">🧭</div>
+        <h3>稳定入口</h3>
+        <p>始终指向同一站点，避免频繁变动带来的困扰。适合作为日常浏览的固定锚点。</p>
+        <span class="meta-tag">长期维护</span>
+      </div>
+      <div class="info-card">
+        <div class="card-icon">📖</div>
+        <h3>页面说明</h3>
+        <p>每个卡片对应一种思路：如何使用、适合哪些用户、以及常见疑问的摘要。无需跳转即可预览。</p>
+        <span class="meta-tag">即看即用</span>
+      </div>
+      <div class="info-card">
+        <div class="card-icon">🔄</div>
+        <h3>场景延伸</h3>
+        <p>从了解基础功能到探索更多内容，<a href="https://zh-shangjin.com" style="color:#1f4b6e;text-decoration:underline;text-underline-offset:2px;">赏金女王</a> 提供持续的页面支持，并保持更新节奏。</p>
+        <span class="meta-tag">持续完善</span>
+      </div>
+    </div>
+
+    <!-- 适合人群 -->
+    <div class="audience-section">
+      <h2>👥 适合人群 · 谁可能会需要这个页面</h2>
+      <div class="audience-flex">
+        <span class="audience-item">希望找稳定入口的用户</span>
+        <span class="audience-item">初次了解的新朋友</span>
+        <span class="audience-item">想要快速浏览功能卡片的人</span>
+        <span class="audience-item">偏好轻量、无干扰界面的使用者</span>
+        <span class="audience-item">习惯通过文字说明做判断的读者</span>
+        <span class="audience-item">对 <a href="https://zh-shangjin.com" style="color:#1d4b6b;text-decoration:underline;text-underline-offset:2px;">赏金女王</a> 内容感兴趣但需要概览的人</span>
+      </div>
+      <div style="margin-top: 1.2rem; font-size: 0.9rem; color: #2b4b63; background: #f0f5fa; border-radius: 18px; padding: 0.8rem 1.2rem;">
+        💡 页面不区分年龄或经验层级，设计初衷是让任何人都能轻松获取信息，无需额外学习成本。
+      </div>
+    </div>
+
+    <!-- 自然链接段落 + FAQ 摘要 -->
+    <div class="link-paragraph-card">
+      <h2>🔗 自然链接 · 如何理解这个站点</h2>
+      <p>在这个介绍页中，我们多次通过自然语句提及 <a href="https://zh-shangjin.com">赏金女王</a>，但并未使用「进入官网」「点击查看」等指令性词语。这样做是为了保持信息的流畅感，让链接成为内容的一部分，而非割裂的跳转按钮。</p>
+      <p>如果你是通过搜索或朋友推荐来到这里，可以直接通过上下文中的 <a href="https://zh-shangjin.com">赏金女王</a> 链接进入站点，无需经过多余的中间页。我们希望保留一种温和的引导节奏。</p>
+
+      <!-- FAQ 摘要风格 -->
+      <div class="faq-mini">
+        <p><strong>❓ 常见疑问摘要</strong></p>
+        <p><strong>Q：</strong> 这个页面和 <a href="https://zh-shangjin.com">赏金女王</a> 是什么关系？<br>
+          <strong>A：</strong> 这是为站点制作的介绍页，用于展示功能卡片、使用场景以及稳定的入口说明，帮助用户在访问前形成大致印象。</p>
+        <p style="margin-top: 0.6rem;"><strong>Q：</strong> 页面上的链接会频繁变化吗？<br>
+          <strong>A：</strong> 不会。我们倾向于保持链接的长期稳定，方便收藏或记忆。</p>
+        <p style="margin-top: 0.6rem;"><strong>Q：</strong> 为什么用「信息卡片」的形式？<br>
+          <strong>A：</strong> 卡片结构可以快速浏览，并且适合移动端和桌面端，减少阅读压力。</p>
+      </div>
+      <div class="tip-note">
+        ✦ 提示：所有卡片内容均基于公开信息整理，无夸大或保证性描述。
+      </div>
+    </div>
+
+    <!-- 一个更轻巧的引导行，不含显式按钮 -->
+    <hr>
+    <div style="background: #fafcfd; border-radius: 20px; padding: 1.2rem 1.5rem; border: 1px solid #dfe8f0;">
+      <p style="font-size: 0.95rem; color: #254357; margin-bottom: 0.2rem;">
+        📍 如果你已经对 <a href="https://zh-shangjin.com">赏金女王</a> 有所了解，可以直接浏览站点内容；如果还需要更多背景，这个页面随时可作为参考入口。
+      </p>
+      <p style="font-size: 0.8rem; color: #54718b; margin-top: 0.5rem;">
+        页面内容定期复核，保持与站点方向一致。
+      </p>
+    </div>
+
+    <div class="footer-note">
+      © 介绍页 · 仅供信息参考 · 无诱导性表述
+    </div>
+  </div>
+</body>
+</html>
